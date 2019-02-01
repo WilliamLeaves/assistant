@@ -1,10 +1,12 @@
 // pages/userdetails/trajoinedbyme/trajoinedbyme.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    trajoindebymeInfo:{}
 
   },
 
@@ -12,9 +14,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    var that = this
+    that.getMyPartakeScheduleList()
+    // app.getTrajoindebymeInfo(function (trajoindebymeInfo){
+    //   that.setData({
+    //     trajoindebymeInfo: trajoindebymeInfo
+    //   })
+    // })
 
   },
-
+  getMyPartakeScheduleList:function(){
+    wx.request({
+      url: app.baseUrl+"/schedule/getMyPartakeScheduleList",
+      method: "GET",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "sessionKey": app.globalData.sessionKey
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

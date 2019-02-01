@@ -25,7 +25,7 @@
                     <view class="weui-label">学校</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入学校"/>
+                    <input class="weui-input" bindinput="setCollege">{{college}}</input>
                 </view>
             </view></view>
              <view class="weui-cell weui-cell_input">
@@ -49,7 +49,7 @@
     </view>
     <view class='box'>
     <view class="button-sp-area">
-        <button class="weui-btn" type="primary" plain="true" bindtap='savemsg'>保存</button>
+        <button class="weui-btn" type="primary" plain="true" bindtap='updateUserInfo'>保存</button>
    </view>
     <view class="button-sp-area">
         <button class="weui-btn" type="primary" plain="true" bindtap='backtomsg'>取消</button>

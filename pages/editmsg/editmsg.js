@@ -1,11 +1,17 @@
 // pages/editmsg/editmsg.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    uid:"1",
+    nickname:"william",
+    college:"南京大学",
+    major:"软件学院",
+    describe:"暂无",
+    entrence_time:"2018"
   },
   backtomsg:function(){
     wx.redirectTo({
@@ -18,9 +24,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    //初始化的时候要将data里的数据设置好，尤其是uid；然后wxml文件里的内容要和data绑定
+    {
 
+    }
+    
   },
-
+updateUserInfo:function(){
+  console.log(this.data.uid)
+  wx.request({
+    url: app.baseUrl+"/user/updateUserInfo",
+    method: "POST",
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "sessionKey": app.globalData.sessionKey
+    },
+    data: {
+      "uid": this.data.uid,
+      "nickname": this.data.nickname,
+      "college": this.data.college,
+      "major":this.data.major,
+      "describe": this.data.describe,
+      "entrance_time":this.data.entrence_time
+    },
+    success(res) {
+      console.log(res)
+    }
+  })
+},
+setCollege:function(event){
+  this.setData({college:event.detail.value})
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
