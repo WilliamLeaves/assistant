@@ -1,46 +1,26 @@
-// pages/userdetails/trasavebyme/trasavebyme.js
-const app=getApp()
+// pages/details/details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    traInfo:{}
+    username: '路人甲',
+    title:'总统府一日游',
+    planDetails: '2019年1月20日，计划去总统府。',
+    inputtime: "2019-2.16",
+    likenumber: '2',
+    commentnumber: '2'
   },
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad')
-    var that = this
-    that.getMyCollectingScheduleList()
-    app.getTraInfo(function (traInfo){
-      //更新数据
-      that.setData({
-        traInfo:traInfo
-      })
-    })
 
   },
-  getMyCollectingScheduleList:function(){
-    wx.request({
-      url: app.baseUrl+"/schedule/getMyCollectingScheduleList",
-      method: "GET",
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "sessionKey": app.globalData.sessionKey
-      },
-      data:{
 
-      },
-      success(res) {
-        console.log(res)
-      }
-    })
-
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -90,3 +70,5 @@ Page({
 
   }
 })
+
+

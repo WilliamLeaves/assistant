@@ -1,11 +1,20 @@
 // pages/publishdetails/plan/plan.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    target: "",
+    meet_place: "",
+    recruit_start_time: "",
+    recruit_end_time: "",
+    execute_time: "",
+    end_time: "",
+    title: "",
+    content:"",
+    partookNum: ""
   },
   getplantime:function(e){
     this.data.getplantime = e.detail.value;
@@ -29,7 +38,72 @@ Page({
     })
 
   },
-
+createSchedule:function(){
+  wx.request({
+    url: app.baseUrl +"/schedule/createSchedule",
+    method: "POST",
+    header: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "sessionKey": app.globalData.sessionKey
+    },
+    data: {
+      target:this.data.target,
+      meet_place: this.data.meet_place,
+      recruit_start_time: this.data.recruit_start_time,
+      recruit_end_time: this.data.recruit_end_time,
+      execute_time: this.data.execute_time,
+      end_time: this.data.end_time,
+      title: this.data.title,
+      content: this.data.content,
+      partookNum: this.data.partookNum
+    }
+  })
+},
+setTitle:function(event){
+  this.setData({
+    title:event.detail.value
+  })
+},
+  setExe_time:function(event){
+    this.setData({
+      execute_time:event.detail.value
+    })
+  },
+  setTarget:function(event){
+    this.setData({
+      target:event.detail.value
+    })
+  },
+  setNum:function(event){
+    this.setData({
+      partookNum:event.detail.value
+    })
+  },
+  setMeet_place:function(event){
+    this.setData({
+      meet_place:event.detail.value
+    })
+  },
+  setStart_time:function(event){
+    this.setData({
+      recruit_start_time:event.detail.value
+    })
+  },
+  setReEnd_time:function(event){
+    this.setData({
+      recruit_end_time:event.detail.value
+    })
+  },
+  setDetails:function(event){
+    this.setData({
+      content:event.detail.value
+    })
+  },
+  setEnd_time:function(event){
+    this.setData({
+      end_time:event.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

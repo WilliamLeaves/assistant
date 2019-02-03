@@ -1,5 +1,4 @@
-<!--pages/editmsg/editmsg.wxml-->
-<!--pages/usercenter/editmsg/editmsg.wxml-->
+<!--pages/register/register.wxml-->
 <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell weui-cell_input">
@@ -46,13 +45,20 @@
                     <input class="weui-input" placeholder="请输入入学年份" bindinput="setEntrance_time">{{entrance_time}}</input>
                 </view>
             </view></view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">用户描述</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入用户描述" bindinput="setDescribe">{{describe}}</input>
+                </view>
+            </view></view>
+            
     </view>
     <view class='box'>
     <view class="button-sp-area">
-        <button class="weui-btn" type="primary" plain="true" bindtap='updateUserInfo'>保存</button>
-   </view>
-    <view class="button-sp-area">
-        <button class="weui-btn" type="primary" plain="true" bindtap='backtomsg'>取消</button>
+        <button class="weui-btn" type="primary" plain="true" bindtap='updateUserInfo'>注册</button>
    </view>
     </view>
-    
+

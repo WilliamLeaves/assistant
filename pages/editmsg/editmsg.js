@@ -42,6 +42,7 @@ updateUserInfo:function(){
     },
     data: {
       "uid": this.data.uid,
+      "sex": this.data.sex,
       "nickname": this.data.nickname,
       "college": this.data.college,
       "major":this.data.major,
@@ -56,6 +57,18 @@ updateUserInfo:function(){
 setCollege:function(event){
   this.setData({college:event.detail.value})
 },
+setNickname:function(event){
+  this.setData({nickname:event.detail.value})
+},
+  setSex:function(event){
+    this.setData({sex:event.detail.value})
+  },
+  setMajor:function(event){
+    this.setData({major:event.detail.value})
+  },
+  setEntrance_time:function(event){
+    this.setData({entrance_time:event.detail.value})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
